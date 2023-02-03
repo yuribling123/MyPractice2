@@ -53,7 +53,7 @@ class Handler implements URLHandler {
                   result += border + "\n" + f.toString() + ":\n" + FileHelpers.readFile(f).substring(0, 100) + "...\n" + border + "\n";
                }
                if(foundPaths.size() == 0) {
-                 return "No files found".
+                 return "No files found";
                }
                else {
                  return String.format("Found %d files:\n%s", foundPaths.size(), result);
