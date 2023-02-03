@@ -50,7 +50,9 @@ class Handler implements URLHandler {
                String result = "";
                String border = "=".repeat(72);
                for (File f: foundPaths) {
-                  result += border + "\n" + f.toString() + ":\n" + FileHelpers.readFile(f).substring(0, 100) + "...\n" + border + "\n";
+                  String contents = FileHelpers.readFile(f);
+                  contents = contents.length() > 100 ? contents.substring(0, 100) : contents;
+                  result += border + "\n" + f.toString() + ":\n" + contents + "...\n" + border + "\n";
                }
                if(foundPaths.size() == 0) {
                  return "No files found";
