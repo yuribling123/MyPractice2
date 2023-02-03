@@ -27,6 +27,13 @@ class FileHelpers {
     static String readFile(File f) throws IOException {
         return new String(Files.readAllBytes(f.toPath()));
     }
+    static String repeat(String s, int n) {
+        String result = "";
+        for(int i = 0; i < n; i += 1) {
+          result += s;
+        }
+        return result;
+    }
 }
 
 class Handler implements URLHandler {
@@ -48,7 +55,7 @@ class Handler implements URLHandler {
                }
                Collections.sort(foundPaths);
                String result = "";
-               String border = "=".repeat(72);
+               String border = FileHelpers.repeat("=", 72);
                for (File f: foundPaths) {
                   String contents = FileHelpers.readFile(f);
                   contents = contents.length() > 100 ? contents.substring(0, 100) : contents;
