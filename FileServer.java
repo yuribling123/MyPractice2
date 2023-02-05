@@ -87,6 +87,11 @@ class Handler implements URLHandler {
   Starts the server on <port>, with a Handler configured to search the given
   directory when processing /search requests.
 
+  The server is designed to process requests like /search?q=<string> and
+  respond with the paths and contents of all files whose path matches the given
+  string. So `q=ch` as the query would return files with names like "ch1.txt"
+  or "march.txt".
+
 */
 class FileServer {
     public static void main(String[] args) throws IOException {
